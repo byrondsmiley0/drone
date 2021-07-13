@@ -1,12 +1,12 @@
 function [ xi yi zi ] = intersectEllipsoid(x, y, z, vx, vy, vz, hae)
 %
-% returns [ xi yi zi ], the intersection of a view vector vx, vy, vz from a camera located at x, y, z 
-%  with the ellipsoid at a height hae above (or below) the ellipsoid
+% returns [ xi yi zi ], the intersection of a unit vector vx, vy, vz from a camera located at x, y, z 
+%  with an elliptical surface hae above (or below) the ellipsoid
 %
 % all variables are in ecef
 %
 % Byron Smiley
-% 12 Jul 2021
+% 13 Jul 2021
 %----------------------------------------------------------------------------------------------------
 
     % load constants from u2x
