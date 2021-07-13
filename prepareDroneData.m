@@ -3,7 +3,7 @@
 % why are you always preparing? Just go!
 %
 % Byron Smiley
-% 2 Jul 2021
+% 12 Jul 2021
 %-------------------------------------------
 
 
@@ -20,7 +20,7 @@ close all
 % provide a directory with the following three ingredients:
 %   many drone images
 %   a converted flight log saved as CSV
-%   a converted flight log saved as KMZ, but then resaved as KML in Google Earth so it's uncompressed
+%   a converted flight log saved as KMZ, then resaved as KML in Google Earth so it's uncompressed
 inDir = '/Users/bsmiley/work/drone flights/launch point 0';
 
 
@@ -213,3 +213,18 @@ for i = 1:I
 end % end of outer loop over img pairs
 
 
+
+
+%% output cell
+
+% make an output file
+outPath = fullfile(inDir, 'metadata.txt');
+
+fid = fopen(outPath, 'w');
+
+% print lines with explicit, floating point formatting
+for i = 1:I
+    fprintf(fid, '%s\t%12.8f\t%12.8f\t%5.3f\t%12.8f\t%12.8f\t%12.8f\n', out{i,1:7});
+end
+
+fclose(fid);
